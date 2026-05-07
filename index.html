@@ -193,20 +193,23 @@
 
         /* Navigation */
         header.top-nav {
-            padding: 1rem 0;
+            padding: 1.2rem 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(28, 31, 51, 0.05);
-            backdrop-filter: blur(12px);
-            transition: var(--transition);
+            background: rgba(28, 31, 51, 0);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            transition: padding 0.5s ease, background 0.5s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease;
         }
 
         header.top-nav.scrolled {
-            background: rgba(28, 31, 51, 0.95);
-            padding: 0.5rem 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: rgba(28, 31, 51, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.6rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         header.top-nav.scrolled .nav-links a {
@@ -1041,7 +1044,7 @@
     <footer>
         <div class="container">
             <img src="logo-magniadata.png" alt="Logo magnIAData" class="logo" loading="lazy" width="507" height="492"
-                style="height: 100px;">
+                style="height: 100px; width: auto;">
             <div
                 style="margin: 2rem 0; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
                 <a href="https://www.linkedin.com/in/isabelle-barbier/" target="_blank"
