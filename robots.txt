@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /politique-confidentialite.html
+Disallow: /politique-cookies.html
+Disallow: /mentions-legales.html
+
+Sitemap: https://magniadata.fr/sitemap.xml
