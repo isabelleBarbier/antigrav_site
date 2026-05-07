@@ -743,11 +743,11 @@
                     <img src="logo-magniadata.png" alt="Logo magnIAData" class="logo" width="507" height="492">
                 </picture>
             </a>
-            <div class="mobile-toggle" id="mobile-menu-toggle">
+            <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" style="background:none; border:none;">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             <nav class="nav-links" id="nav-menu">
                 <a href="#home">Accueil</a>
                 <a href="#a-propos">À propos</a>
@@ -1151,8 +1151,9 @@
         const navLinks = document.querySelectorAll('.nav-links a');
 
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
+            const isActive = menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isActive);
             document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
         });
 
@@ -1160,6 +1161,7 @@
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = 'auto';
             });
         });
@@ -1183,21 +1185,56 @@
             revealObserver.observe(el);
         });
 
-        // Modal Contact RGPD
+        // Modal Contact RGPD avec Focus Trap
+        let lastFocusedElement;
         function ouvrirModalContact() {
+            lastFocusedElement = document.activeElement;
             const modal = document.getElementById('modal-contact');
             modal.style.display = 'flex';
-            // Fermeture en cliquant en dehors
+            
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusableElements.length > 0) {
+                setTimeout(() => focusableElements[0].focus(), 100);
+            }
+
+            modal.addEventListener('keydown', trapFocus);
             modal.addEventListener('click', function (e) {
                 if (e.target === modal) fermerModalContact();
             });
         }
-        function fermerModalContact() {
-            document.getElementById('modal-contact').style.display = 'none';
+
+        function trapFocus(e) {
+            if (e.key !== 'Tab') return;
+            const modal = document.getElementById('modal-contact');
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (e.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    lastElement.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (document.activeElement === lastElement) {
+                    firstElement.focus();
+                    e.preventDefault();
+                }
+            }
         }
+
+        function fermerModalContact() {
+            const modal = document.getElementById('modal-contact');
+            modal.style.display = 'none';
+            modal.removeEventListener('keydown', trapFocus);
+            if (lastFocusedElement) lastFocusedElement.focus();
+        }
+
         // Fermeture avec Echap
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') fermerModalContact();
+            if (e.key === 'Escape' && document.getElementById('modal-contact').style.display === 'flex') {
+                fermerModalContact();
+            }
         });
     </script>
 
