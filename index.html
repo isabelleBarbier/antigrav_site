@@ -815,7 +815,7 @@
                 <a href="#expertise">Expertise</a>
                 <a href="#parcours">Parcours</a>
                 <a href="#faq">FAQ</a>
-                <button onclick="ouvrirModalContact()" class="cta-button"
+                <button data-modal="contact" class="cta-button"
                     style="padding: 0.8rem 2rem; font-size: 0.9rem; border: none;">
                     Contact
                 </button>
@@ -833,7 +833,7 @@
                     accompagne vers une autonomie concrète.
                     Gagnez du temps, automatisez vos processus et transformez vos données en levier stratégique.</p>
                 <div class="hero-btns">
-                    <button onclick="ouvrirModalContact()" class="cta-button">Réserver mon appel</button>
+                    <button data-modal="contact" class="cta-button">Réserver mon appel</button>
                     <a href="#expertise" class="cta-button outline">En savoir plus</a>
                 </div>
             </div>
@@ -1137,7 +1137,7 @@
             <h2>Prenez une longueur d'avance dès aujourd'hui.</h2>
             <p style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.3rem;">Devenez autonome pour booster votre
                 activité. <br>Pour que <strong>VOUS</strong> maîtrisiez l'IA et non l'inverse.</p>
-            <button onclick="ouvrirModalContact()" class="cta-button">Réserver mon appel gratuit</button>
+            <button data-modal="contact" class="cta-button">Réserver mon appel gratuit</button>
         </div>
     </section>
 
@@ -1311,6 +1311,26 @@ function ouvrirCalendlyApresConsentement() {
         });
     }
 }
+
+// Initialisation des écouteurs d'événements (CSP Friendly)
+document.addEventListener('DOMContentLoaded', () => {
+    // Boutons d'ouverture de la modal
+    document.querySelectorAll('[data-modal="contact"]')
+        .forEach(btn => btn.addEventListener('click', ouvrirModalContact));
+
+    // Bouton de confirmation dans la modal
+    const btnCalendly = document.getElementById('btn-calendly-confirm');
+    if (btnCalendly) {
+        btnCalendly.addEventListener('click', ouvrirCalendlyApresConsentement);
+    }
+
+    // Bouton d'annulation dans la modal
+    const btnClose = document.getElementById('btn-modal-close');
+    if (btnClose) {
+        btnClose.addEventListener('click', fermerModalContact);
+    }
+});
+
     </script>
 
     <!-- Modal RGPD -->
@@ -1339,12 +1359,12 @@ function ouvrirCalendlyApresConsentement() {
                 </a>
             </p>
             <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
-                <button onclick="ouvrirCalendlyApresConsentement()" 
+                <button id="btn-calendly-confirm" 
                         class="cta-button" 
                         style="flex:1; text-align:center; border:none; cursor:pointer;">
                     Ouvrir le calendrier
                 </button>
-                <button onclick="fermerModalContact()" style="flex:1; background:none; border:2px solid var(--lavender); 
+                <button id="btn-modal-close" style="flex:1; background:none; border:2px solid var(--lavender); 
                                color:var(--navy); padding:1.2rem 2rem; border-radius:50px; 
                                font-weight:700; cursor:pointer; font-family:var(--font-title);">
                     Annuler
