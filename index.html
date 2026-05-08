@@ -11,6 +11,20 @@
         content="Formation IA, Prompt Engineering, SQL, Jamovi, Automatisation, magnIAData, Isabelle Barbier, Intelligence Artificielle non-technique, Productivité IA">
     <meta name="author" content="Isabelle Barbier - magnIAData">
     <link rel="canonical" href="https://magniadata.fr/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://magniadata.fr/">
+    <meta property="og:title" content="magnIAData | Formations IA & Data">
+    <meta property="og:description" content="Maîtrisez le Prompt Engineering, SQL et Jamovi sans code.">
+    <meta property="og:image" content="https://magniadata.fr/logo-magniadata.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://magniadata.fr/">
+    <meta property="twitter:title" content="magnIAData | Formations IA & Data">
+    <meta property="twitter:description" content="Maîtrisez le Prompt Engineering, SQL et Jamovi sans code.">
+    <meta property="twitter:image" content="https://magniadata.fr/logo-magniadata.webp">
 
     <!-- GEO Optimization (Generative Engine Optimization) -->
     <script type="application/ld+json">
@@ -19,7 +33,7 @@
       "@type": "EducationalOrganization",
       "name": "magnIAData",
       "url": "https://magniadata.fr",
-      "logo": "https://magniadata.fr/logo-magniadata.png",
+      "logo": "https://magniadata.fr/logo-magniadata.webp",
       "description": "Expert en formation IA et Data pour profils non-techniques. Spécialiste Prompt Engineering, automatisation et analyse de données (SQL, Jamovi).",
       "founder": {
         "@type": "Person",
@@ -776,6 +790,9 @@
       data-website-id="27b6457a-0242-41fe-96ff-b9a45ab2a103"
       data-domains="magniadata.fr">
     </script>
+    <!-- Calendly : chargé uniquement après consentement -->
+    <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+
 </head>
 
 <body>
@@ -818,8 +835,7 @@
                     accompagne vers une autonomie concrète.
                     Gagnez du temps, automatisez vos processus et transformez vos données en levier stratégique.</p>
                 <div class="hero-btns">
-                    <a href="https://calendly.com/isabelle-magniadata/30min" target="_blank" rel="noopener noreferrer"
-                        class="cta-button">Réserver mon appel</a>
+                    <button onclick="ouvrirModalContact()" class="cta-button">Réserver mon appel</button>
                     <a href="#expertise" class="cta-button outline">En savoir plus</a>
                 </div>
                 <p class="rgpd-notice">
@@ -1130,8 +1146,7 @@
             <h2>Prenez une longueur d'avance dès aujourd'hui.</h2>
             <p style="max-width: 700px; margin: 0 auto 3rem; font-size: 1.3rem;">Devenez autonome pour booster votre
                 activité. <br>Pour que <strong>VOUS</strong> maîtrisiez l'IA et non l'inverse.</p>
-            <a href="https://calendly.com/isabelle-magniadata/30min" target="_blank" rel="noopener noreferrer"
-                class="cta-button">Réserver mon appel gratuit</a>
+            <button onclick="ouvrirModalContact()" class="cta-button">Réserver mon appel gratuit</button>
             <p class="rgpd-notice">
                 En réservant, vos données sont transmises à
                 <a href="https://calendly.com/legal/privacy-notice" target="_blank"
@@ -1147,7 +1162,7 @@
         <div class="container">
             <picture>
                 <source srcset="logo-magniadata.webp" type="image/webp">
-                <img src="logo-magniadata.png" alt="Logo magnIAData" class="logo" loading="lazy" width="507" height="492"
+                <img src="logo-magniadata.webp" alt="Logo magnIAData" class="logo" loading="lazy" width="507" height="492"
                     style="height: 100px; width: auto;">
             </picture>
             <div
@@ -1233,21 +1248,23 @@
 
         // Modal Contact RGPD avec Focus Trap
         let lastFocusedElement;
-        function ouvrirModalContact() {
-            lastFocusedElement = document.activeElement;
-            const modal = document.getElementById('modal-contact');
-            modal.style.display = 'flex';
-            
-            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-            if (focusableElements.length > 0) {
-                setTimeout(() => focusableElements[0].focus(), 100);
-            }
+function ouvrirModalContact() {
+    lastFocusedElement = document.activeElement;
+    const modal = document.getElementById('modal-contact');
+    modal.style.display = 'flex';
 
-            modal.addEventListener('keydown', trapFocus);
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) fermerModalContact();
-            });
-        }
+    const focusableElements = modal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length > 0) {
+        setTimeout(() => focusableElements[0].focus(), 100);
+    }
+
+    modal.addEventListener('keydown', trapFocus);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) fermerModalContact();
+    });
+}
 
         function trapFocus(e) {
             if (e.key !== 'Tab') return;
@@ -1282,6 +1299,26 @@
                 fermerModalContact();
             }
         });
+
+function ouvrirCalendlyApresConsentement() {
+    fermerModalContact();
+
+    // Chargement lazy du script Calendly uniquement après consentement
+    if (!window.Calendly) {
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.onload = () => {
+            Calendly.initPopupWidget({
+                url: 'https://calendly.com/isabelle-magniadata/30min'
+            });
+        };
+        document.head.appendChild(script);
+    } else {
+        Calendly.initPopupWidget({
+            url: 'https://calendly.com/isabelle-magniadata/30min'
+        });
+    }
+}
     </script>
 
     <!-- Modal RGPD -->
@@ -1302,10 +1339,11 @@
                 </a>
             </p>
             <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
-                <a href="https://calendly.com/isabelle-magniadata/30min" target="_blank" rel="noopener noreferrer"
-                    class="cta-button" style="flex:1; text-align:center;" onclick="fermerModalContact()">
-                    Continuer vers Calendly
-                </a>
+                <button onclick="ouvrirCalendlyApresConsentement()" 
+                        class="cta-button" 
+                        style="flex:1; text-align:center; border:none; cursor:pointer;">
+                    Ouvrir le calendrier
+                </button>
                 <button onclick="fermerModalContact()" style="flex:1; background:none; border:2px solid var(--lavender); 
                                color:var(--navy); padding:1.2rem 2rem; border-radius:50px; 
                                font-weight:700; cursor:pointer; font-family:var(--font-title);">
