@@ -790,8 +790,6 @@
       data-website-id="27b6457a-0242-41fe-96ff-b9a45ab2a103"
       data-domains="magniadata.fr">
     </script>
-    <!-- Calendly : chargé uniquement après consentement -->
-    <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 
 </head>
 
@@ -1288,6 +1286,14 @@ function ouvrirModalContact() {
 
 function ouvrirCalendlyApresConsentement() {
     fermerModalContact();
+
+    // Injection du CSS de Calendly uniquement après consentement
+    if (!document.querySelector('link[href*="calendly.com"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://assets.calendly.com/assets/external/widget.css';
+        document.head.appendChild(link);
+    }
 
     // Chargement lazy du script Calendly uniquement après consentement
     if (!window.Calendly) {
