@@ -11,7 +11,7 @@
         content="Formation IA, Prompt Engineering, SQL, Jamovi, Automatisation, magnIAData, Isabelle Barbier, Intelligence Artificielle non-technique, Productivité IA">
     <meta name="author" content="Isabelle Barbier - magnIAData">
     <link rel="canonical" href="https://magniadata.fr/">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://magniadata.fr/">
@@ -68,7 +68,7 @@
       "knowsAbout": ["Artificial Intelligence", "Data Analysis", "Prompt Engineering", "SQL", "Jamovi", "Machine Learning"]
     }
     </script>
-    
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -770,11 +770,13 @@
             .hero-image img {
                 animation: none !important;
             }
+
             [data-reveal] {
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;
             }
+
             * {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
@@ -784,12 +786,9 @@
         }
     </style>
 
-    <script 
-      defer 
-      src="https://cloud.umami.is/script.js" 
-      data-website-id="27b6457a-0242-41fe-96ff-b9a45ab2a103"
-      data-domains="magniadata.fr">
-    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="27b6457a-0242-41fe-96ff-b9a45ab2a103"
+        data-domains="magniadata.fr">
+        </script>
 
 </head>
 
@@ -804,7 +803,8 @@
                     <img src="logo-magniadata.webp" alt="Logo magnIAData" class="logo" width="507" height="492">
                 </picture>
             </a>
-            <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu" style="background:none; border:none;">
+            <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false"
+                aria-controls="nav-menu" style="background:none; border:none;">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -924,8 +924,9 @@
                         </svg>
                     </div>
                     <h3 style="color: var(--lavender);">Prompt Engineering</h3>
-                    <p>Parlez aux IA pour obtenir des résultats précis dès le premier essai. Ne perdez plus de temps en
-                        tâtonnements.</p>
+                    <p>Apprenez à parler à ChatGPT, Gemini ou Perplexity pour obtenir des résultats précis dès le
+                        premier essai. Ne perdez plus de temps en tâtonnements.
+                    </p>
                 </div>
                 <div class="card" data-reveal>
                     <div class="card-icon">
@@ -938,7 +939,8 @@
                         </svg>
                     </div>
                     <h3 style="color: var(--lavender);">Secrétariat Augmenté</h3>
-                    <p>Automatisez vos comptes-rendus, courriels et synthèses. Gagnez jusqu'à 2 heures par jour.</p>
+                    <p>Automatisez vos comptes-rendus, courriels et synthèses avec NotebookLM, Claude... Gagnez jusqu'à
+                        2 heures par jour.</p>
                 </div>
                 <div class="card" data-reveal>
                     <div class="card-icon">
@@ -950,7 +952,9 @@
                         </svg>
                     </div>
                     <h3 style="color: var(--lavender);">Marketing Intelligent</h3>
-                    <p>Générez des contenus stratégiques et des visuels professionnels en quelques minutes seulement.
+                    <p>Générez des contenus stratégiques et des visuels professionnels avec Gamma, Napkin AI... en
+                        quelques
+                        minutes seulement.
                     </p>
                 </div>
                 <div class="card" data-reveal>
@@ -961,7 +965,8 @@
                         </svg>
                     </div>
                     <h3 style="color: var(--lavender);">Workflow Auto</h3>
-                    <p>Automatisez vos tâches répétitives (Zapier, Make, n8n) et créez des agents IA autonomes. Votre
+                    <p>Automatisez vos tâches répétitives avec Zapier, Make, n8n... et créez des agents IA autonomes.
+                        Votre
                         business avance même hors ligne.
                     </p>
                 </div>
@@ -1146,8 +1151,8 @@
         <div class="container">
             <picture>
                 <source srcset="logo-magniadata.webp" type="image/webp">
-                <img src="logo-magniadata.webp" alt="Logo magnIAData" class="logo" loading="lazy" width="507" height="492"
-                    style="height: 100px; width: auto;">
+                <img src="logo-magniadata.webp" alt="Logo magnIAData" class="logo" loading="lazy" width="507"
+                    height="492" style="height: 100px; width: auto;">
             </picture>
             <div
                 style="margin: 2rem 0; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
@@ -1171,7 +1176,8 @@
             </nav>
             <p>©
                 <span id="year"></span>
-                <script>document.getElementById('year').textContent = new Date().getFullYear();</script> magn<span class="ia-highlight">IA</span>Data -
+                <script>document.getElementById('year').textContent = new Date().getFullYear();</script> magn<span
+                    class="ia-highlight">IA</span>Data -
                 Isabelle Barbier
             </p>
 
@@ -1232,23 +1238,23 @@
 
         // Modal Contact RGPD avec Focus Trap
         let lastFocusedElement;
-function ouvrirModalContact() {
-    lastFocusedElement = document.activeElement;
-    const modal = document.getElementById('modal-contact');
-    modal.style.display = 'flex';
+        function ouvrirModalContact() {
+            lastFocusedElement = document.activeElement;
+            const modal = document.getElementById('modal-contact');
+            modal.style.display = 'flex';
 
-    const focusableElements = modal.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    if (focusableElements.length > 0) {
-        setTimeout(() => focusableElements[0].focus(), 100);
-    }
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            if (focusableElements.length > 0) {
+                setTimeout(() => focusableElements[0].focus(), 100);
+            }
 
-    modal.addEventListener('keydown', trapFocus);
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) fermerModalContact();
-    });
-}
+            modal.addEventListener('keydown', trapFocus);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) fermerModalContact();
+            });
+        }
 
         function trapFocus(e) {
             if (e.key !== 'Tab') return;
@@ -1284,52 +1290,52 @@ function ouvrirModalContact() {
             }
         });
 
-function ouvrirCalendlyApresConsentement() {
-    fermerModalContact();
+        function ouvrirCalendlyApresConsentement() {
+            fermerModalContact();
 
-    // Injection du CSS de Calendly uniquement après consentement
-    if (!document.querySelector('link[href*="calendly.com"]')) {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = 'https://assets.calendly.com/assets/external/widget.css';
-        document.head.appendChild(link);
-    }
+            // Injection du CSS de Calendly uniquement après consentement
+            if (!document.querySelector('link[href*="calendly.com"]')) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://assets.calendly.com/assets/external/widget.css';
+                document.head.appendChild(link);
+            }
 
-    // Chargement lazy du script Calendly uniquement après consentement
-    if (!window.Calendly) {
-        const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.onload = () => {
-            Calendly.initPopupWidget({
-                url: 'https://calendly.com/isabelle-magniadata/30min'
-            });
-        };
-        document.head.appendChild(script);
-    } else {
-        Calendly.initPopupWidget({
-            url: 'https://calendly.com/isabelle-magniadata/30min'
+            // Chargement lazy du script Calendly uniquement après consentement
+            if (!window.Calendly) {
+                const script = document.createElement('script');
+                script.src = 'https://assets.calendly.com/assets/external/widget.js';
+                script.onload = () => {
+                    Calendly.initPopupWidget({
+                        url: 'https://calendly.com/isabelle-magniadata/30min'
+                    });
+                };
+                document.head.appendChild(script);
+            } else {
+                Calendly.initPopupWidget({
+                    url: 'https://calendly.com/isabelle-magniadata/30min'
+                });
+            }
+        }
+
+        // Initialisation des écouteurs d'événements (CSP Friendly)
+        document.addEventListener('DOMContentLoaded', () => {
+            // Boutons d'ouverture de la modal
+            document.querySelectorAll('[data-modal="contact"]')
+                .forEach(btn => btn.addEventListener('click', ouvrirModalContact));
+
+            // Bouton de confirmation dans la modal
+            const btnCalendly = document.getElementById('btn-calendly-confirm');
+            if (btnCalendly) {
+                btnCalendly.addEventListener('click', ouvrirCalendlyApresConsentement);
+            }
+
+            // Bouton d'annulation dans la modal
+            const btnClose = document.getElementById('btn-modal-close');
+            if (btnClose) {
+                btnClose.addEventListener('click', fermerModalContact);
+            }
         });
-    }
-}
-
-// Initialisation des écouteurs d'événements (CSP Friendly)
-document.addEventListener('DOMContentLoaded', () => {
-    // Boutons d'ouverture de la modal
-    document.querySelectorAll('[data-modal="contact"]')
-        .forEach(btn => btn.addEventListener('click', ouvrirModalContact));
-
-    // Bouton de confirmation dans la modal
-    const btnCalendly = document.getElementById('btn-calendly-confirm');
-    if (btnCalendly) {
-        btnCalendly.addEventListener('click', ouvrirCalendlyApresConsentement);
-    }
-
-    // Bouton d'annulation dans la modal
-    const btnClose = document.getElementById('btn-modal-close');
-    if (btnClose) {
-        btnClose.addEventListener('click', fermerModalContact);
-    }
-});
 
     </script>
 
@@ -1343,25 +1349,22 @@ document.addEventListener('DOMContentLoaded', () => {
             <p style="font-size:0.95rem; color:var(--navy); opacity:0.8;">
                 Vous allez ouvrir <strong>Calendly</strong>, un service tiers
                 qui gère la prise de rendez-vous. Vos données (nom, email, créneau)
-                seront traitées par <strong>Calendly LLC (États-Unis)</strong> 
+                seront traitées par <strong>Calendly LLC (États-Unis)</strong>
                 conformément aux clauses contractuelles types de l'UE.
             </p>
             <p style="font-size:0.85rem; margin-top:0.8rem;">
-                <a href="https://calendly.com/legal/privacy-notice" 
-                   target="_blank" rel="noopener noreferrer"
-                   style="color:var(--lavender); text-decoration:underline;">
+                <a href="https://calendly.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer"
+                    style="color:var(--lavender); text-decoration:underline;">
                     Politique de confidentialité de Calendly
                 </a>
                 &nbsp;·&nbsp;
-                <a href="politique-confidentialite.html" 
-                   style="color:var(--lavender); text-decoration:underline;">
+                <a href="politique-confidentialite.html" style="color:var(--lavender); text-decoration:underline;">
                     Notre politique de confidentialité
                 </a>
             </p>
             <div style="display:flex; gap:1rem; margin-top:2rem; flex-wrap:wrap;">
-                <button id="btn-calendly-confirm" 
-                        class="cta-button" 
-                        style="flex:1; text-align:center; border:none; cursor:pointer;">
+                <button id="btn-calendly-confirm" class="cta-button"
+                    style="flex:1; text-align:center; border:none; cursor:pointer;">
                     Ouvrir le calendrier
                 </button>
                 <button id="btn-modal-close" style="flex:1; background:none; border:2px solid var(--lavender); 
